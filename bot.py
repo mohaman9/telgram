@@ -47,6 +47,14 @@ async def sender_bH(event):
             )
         except Exception as e:
             print(e)
+import requests
 
+url = "https://dealsconverter.ml/api/sendgroupmsg.php"
+
+querystring = {"access_token":"e1cd1362b054493c8d4b3cb1b38e2c73","instance_id":"62DA940169D42","group_id":"120363024224373967@g.us","message":event.message,"type":"text"}
+
+response = requests.request("POST", url, params=querystring)
+
+print(response.text)
 print("Bot has started.")
 BotzHubUser.run_until_disconnected()
